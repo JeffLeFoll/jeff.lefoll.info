@@ -1,0 +1,14 @@
+{
+    "ecmaFeatures": {
+        "modules": true
+  },
+    "rules": {
+        "no-console": 0
+  },
+    "env": {
+        "mocha": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": "eslint:recommended"
+}

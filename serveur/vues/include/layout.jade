@@ -1,0 +1,18 @@
+head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title #{titre}
+    link(rel='stylesheet', href='./app/app.css')
+    
+  body(ng-app="app", ng-strict-di)
+
+    include menu
+
+    block contenu
+          
+    include footer
+    
+    script(type="text/javascript", src='./app/extlibs.js')
+    script(type="text/javascript", src='./app/app.js')
+    script.
+      $(document).foundation();

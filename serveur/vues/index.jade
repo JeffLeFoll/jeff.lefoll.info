@@ -1,0 +1,11 @@
+extends include/layout
+block contenu
+    div(ng-controller="ControleurIndex")
+        label
+            | Saisissez votre nom : 
+            input(type="text", ng-model="nom")
+        br
+        | Bonjour 
+        span(ng-bind="nom")
+        | !
+        br

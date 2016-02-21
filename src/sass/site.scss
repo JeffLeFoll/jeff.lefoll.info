@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+@import "foundation/conf-foundation";
+
+@import "couleurs";
+@import "footer";
+@import "menu";
+
+$font-stack: Tahoma, Geneva, sans-serif;
+
+body {
+  font: 100% $font-stack;
+  background-color:  $couleur-background;
+  color: $gris-fonce;
+  
+  h1 {
+      font-family: $font-stack;
+  }
+}
