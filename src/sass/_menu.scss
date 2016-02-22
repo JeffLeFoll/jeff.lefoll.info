@@ -4,10 +4,12 @@ $menu-background: #333;
 .title-bar {
   background: $menu-background;
   padding: 0.9rem;
+  opacity: .8; 
 }
 
 .top-bar {
   background: $menu-background;
+  opacity: .8; 
   ul {
     background: $menu-background;
     li {

@@ -7,7 +7,7 @@ module.exports = function (grunt) {
        
        backgroundWatch.stdout.pipe(process.stdout); 
        backgroundWatch.stderr.pipe(process.stderr); 
-       grunt.task.run(['copy', 'mocha:console', 'watch']); 
+       grunt.task.run(['mocha:console', 'watch']); 
     }); 
 
 }; 

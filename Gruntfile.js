@@ -20,7 +20,7 @@ module.exports = function (grunt) {
     grunt.registerTask("test", ["eslint", "mocha:console"]); 
     grunt.registerTask('ci', ['eslint', 'mocha:ci', 'build']);
     grunt.registerTask('default', ['clean', 'dev']);
-    grunt.registerTask("build", ["clean", "webpack", "copy"]);
+    grunt.registerTask("build", ["clean", "webpack"]);
     
 
     function loadConfig(path) {
