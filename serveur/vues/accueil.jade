@@ -1,0 +1,8 @@
+extends include/layout
+block contenu
+    div        span(ng-bind="nom")
+        label
+            | Saisissez votre nom : 
+            input(type="text")
+        br
+        | Bonjour !

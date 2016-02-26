@@ -61,14 +61,15 @@ module.exports = function(grunt) {
           test: /\.jsx?$/,
           loader: 'babel',
           exclude: /node_modules/
-        }, {
+        }, 
+        {
           test: /\.scss$/,
           loader: ExtractTextPlugin.extract('style', 'css!sass')
-        }, 
-        {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
-        {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
+        },
+        {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff&name=./css/[hash].[ext]'},
+        {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream&name=./css/[hash].[ext]'},
         {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
-        {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'},
+        {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml&name=./css/[hash].[ext]'},
         {test: /\.(jpg)$/, loader: 'file?name=../static/img/[hash].[ext]'}
         ]
       },
@@ -82,7 +83,7 @@ module.exports = function(grunt) {
           '$': 'jquery',
           'jQuery': 'jquery'
         }),
-        new ExtractTextPlugin('[name].css')
+        new ExtractTextPlugin('css/[name].css')
       ]
     };
     if (prod) {

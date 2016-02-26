@@ -1,11 +1,11 @@
-"use strict"; 
+'use strict'; 
 
 module.exports = function (grunt) { 
 
     let path = require('path');
-     require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks); 
+     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks); 
      var config = { 
-        pkg: grunt.file.readJSON("package.json"),
+        pkg: grunt.file.readJSON('package.json'),
         prod: grunt.option('prod') || false,
         srcDir: path.join(__dirname, 'src'),
         buildDir: path.join(__dirname, 'serveur', 'public', 'app'),
@@ -15,16 +15,16 @@ module.exports = function (grunt) {
     grunt.util._.extend(config, loadConfig('./taches/options/'));
     grunt.initConfig(config);
     
-    grunt.loadTasks("taches");
+    grunt.loadTasks('taches');
 
-    grunt.registerTask("test", ["eslint", "mocha:console"]); 
+    grunt.registerTask('test', ['eslint', 'mocha:console']); 
     grunt.registerTask('ci', ['eslint', 'mocha:ci', 'build']);
-    grunt.registerTask('default', ['clean', 'dev']);
-    grunt.registerTask("build", ["clean", "webpack"]);
+    grunt.registerTask('default', ['clean', 'svgstore', 'dev']);
+    grunt.registerTask('build', ['clean', 'svgstore','webpack']);
     
 
     function loadConfig(path) {
-        var glob = require("glob");
+        var glob = require('glob');
         var object = {};
         var key;
 

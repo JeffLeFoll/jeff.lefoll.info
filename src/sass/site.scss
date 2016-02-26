@@ -1,18 +1,20 @@
 @charset "UTF-8";
 
 @import "foundation/conf-foundation";
+@import "font-awesome/conf-font-awesome";
 
 @import "couleurs";
 @import "footer";
 @import "menu";
 @import "banniere";
+@import "apercu";
 
 $font-stack: Tahoma, Geneva, sans-serif;
 
 body {
   font: 100% $font-stack;
   background-color:  $couleur-background;
-  color: $gris-fonce;
+  color: $blanc;
   
   h1 {
       font-family: $font-stack;
