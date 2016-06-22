@@ -1,59 +1,29 @@
 
-$menu-background: $bleu-fonce;
-
 .title-bar {
-  background: $menu-background;
+  color: $bleu-fonce;
   padding: 0.9rem;
 }
 
 .top-bar {
-  background: $menu-background;
+  background: rgba(240,	250,	250, 0.90);
   ul {
-    background: $menu-background;
+    background: rgba(240,	250,	250, 0);
     li {
-      background: $menu-background;    
-        a {
-          color: $blanc;
+      a {
+          color: $bleu-fonce;
+          &:hover, &:active {
+            background-color: $bleu-tres-leger-hover;
+            border-radius: 4px;
+          }
       }
     }
   }
 }
 
 .menu-text {
-  color: $blanc;
+  color: $bleu-fonce;
   @media only screen and (max-width: 40em) {
     display: none !important;
   }
 }
 
-@media only screen and (min-width: 40em) {
-  .menu:last-child {
-    border-left: 1px solid #4e4e4e;
-  }
-
-  .menu:first-child {
-    border-left: none;
-  }
-
-  .menu {
-    li:not(:last-child) {
-      border-right: 1px solid #4e4e4e;
-    }
-  }
-}
-
-.dropdown.menu .submenu {
-  border: none;
-}
-
-.dropdown.menu .is-dropdown-submenu-parent.is-right-arrow>a::after {
-  border-color: $blanc transparent transparent;
-}
-
-.is-drilldown-submenu-parent>a::after {
-  border-color: transparent transparent transparent $blanc;
-}
-
-.js-drilldown-back::before {
-  border-color: transparent $blanc transparent transparent;
-}
