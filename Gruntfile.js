@@ -17,7 +17,7 @@ module.exports = function (grunt) {
     
     grunt.loadTasks('taches');
 
-    grunt.registerTask('test', ['eslint', 'mocha:console']); 
+    grunt.registerTask('test', ['mocha:console']); 
     grunt.registerTask('ci', ['eslint', 'mocha:ci', 'build']);
     grunt.registerTask('default', ['clean', 'svgstore', 'dev']);
     grunt.registerTask('build', ['clean', 'svgstore','webpack']);

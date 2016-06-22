@@ -2,7 +2,8 @@
 .hero {
   height: 50vh;
   background-size: cover;
-  background: linear-gradient(to bottom right,$bleu-fonce,$blanc);
+  background: $bleu-fonce;
+  background: linear-gradient(to left,$bleu-leger, $bleu-fonce);
 
   .intro {
     padding: 3rem;
