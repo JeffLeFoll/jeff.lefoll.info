@@ -1,8 +1,7 @@
 
 .hero {
-  height: 50vh;
+  height: 90vh;
   background-size: cover;
-  background: $bleu-fonce;
   background: linear-gradient(to left, $bleu-leger, $bleu-fonce);
 
   .intro {
@@ -12,9 +11,17 @@
     transform: translateY(-50%);
   }
 
+  h1 {
+    color: $blanc;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-weight: 300;
+  }
+
   p {
     color: $blanc;
-    line-height: 1.6em;
+    line-height: 1.75em;
     font-weight: 200;
     text-align: center;
     margin-bottom: 2rem;
@@ -23,18 +30,24 @@
   .portrait {
     background: url('./../assets/img/jeff_lefoll.jpg') no-repeat center center;
     background-size: cover;
-    height: 7rem;
-    width: 7rem;
+    height: 9rem;
+    width: 9rem;
     border-radius: 50%;
     display: block;
     margin: 0 auto;
     border: 1px solid $blanc;
+    margin-bottom: 2rem;
   }
 
   @media only screen and (min-width: 40.063em) {
     .portrait {
       height: 18rem;
       width: 18rem;
+    }
+
+    h1 {
+      text-align: left;
+      font-size: 2.0rem;
     }
 
     p {

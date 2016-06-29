@@ -1,13 +1,9 @@
-
-.title-bar {
-  color: $bleu-fonce;
-  padding: 0.9rem;
-}
+$menu-background: $bleu-tres-leger;
 
 .top-bar {
-  background: rgba(240,	250,	250, 0.90);
+  background: $menu-background;
   ul {
-    background: rgba(240,	250,	250, 0);
+    background: $menu-background;
     li {
       a {
           color: $bleu-fonce;
@@ -20,10 +16,12 @@
   }
 }
 
-.menu-text {
+.title-bar {
+  background: $menu-background;
   color: $bleu-fonce;
-  @media only screen and (max-width: 40em) {
-    display: none !important;
-  }
+  padding: 0.9rem;
 }
+.menu-icon {
+    @include hamburger($color: $bleu-fonce, $color-hover: $bleu);
+  }
 
