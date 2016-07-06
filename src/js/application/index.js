@@ -1,7 +1,7 @@
 import angular from 'angular';
-import ControleurIndex from './controleurs/controleur_index';
+import controleurs from './controleurs';
+import filtres from './filtres';
 
-angular.module('application', [])
-    .controller('ControleurIndex', ControleurIndex);
+angular.module('application', [controleurs, filtres]);
     
 export default 'application';

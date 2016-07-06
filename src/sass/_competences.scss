@@ -1,4 +1,4 @@
-.competences {
+#competences {
     position:relative;
     padding: 5em 0px;
     background-color:  $couleur-background-alt1;
@@ -14,5 +14,11 @@
     
     .h1{
         line-height: 2em;
+    }
+
+    .comp {
+        border: 1px solid $bleu;
+        border-radius: 4px;
+        margin: 2px;
     }
 }

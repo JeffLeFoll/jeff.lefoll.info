@@ -16,7 +16,7 @@ module.exports = function (grunt) {
 
     function run(reporter, done) {
         grunt.util.spawn({
-            cmd: './node_modules/mocha/bin/mocha',
+            cmd: './node_modules/.bin/_mocha.cmd',
             args: _.extend(['--compilers', 'js:babel-register', '--reporter', reporter, tests]),
             opts: {
               stdio : 'inherit'

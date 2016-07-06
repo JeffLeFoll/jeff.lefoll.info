@@ -9,6 +9,7 @@ $menu-background: $bleu-tres-leger;
           color: $bleu-fonce;
           &:hover, &:active {
             background-color: $bleu-tres-leger-hover;
+            border: 1px solid $bleu;
             border-radius: 4px;
           }
       }
