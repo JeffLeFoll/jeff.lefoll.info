@@ -1,4 +1,4 @@
-import memoize from 'lodash/Function/memoize';
+import memoize from 'lodash/function/memoize';
 
 export default function () {
     "nginject";
