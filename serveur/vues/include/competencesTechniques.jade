@@ -1,0 +1,4 @@
+div(ng-controller="ControleurCompetences as controller")
+    div(ng-repeat='competence in (controller.competencesTechniques() | groupBy:3) track by competence')
+        .row.align-center
+            div(ng-repeat='competenceFiltree in competence').medium-2.column.align-middle.comp {{ competenceFiltree }}

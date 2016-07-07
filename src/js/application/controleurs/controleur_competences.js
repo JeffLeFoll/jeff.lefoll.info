@@ -1,8 +1,12 @@
 export default class ControleurCompetences { 
   /* @ngInject */
-  constructor($scope) {
-    this.$scope = $scope;
-    $scope.competences = ['Java', 'Junit', 'C#', 'NUnit', 'JavaScript', 'AngularJS', 'Node.js'];
+  constructor() {
+  }
+
+  competencesTechniques(){
+        return ['Java', 'Junit', 'C#', 'NUnit', 'JavaScript', 
+        'AngularJS', 'Node.js', 'Tapestry', 'GWT', 'Hadoop', 
+        'Pig', 'Git', 'Maven', 'Sonar', 'Jenkins'];
   }
 
 }
