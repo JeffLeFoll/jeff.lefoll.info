@@ -10,7 +10,8 @@ class Serveur {
     this.app.set('views', path.join(__dirname, 'vues'));
     this.app.set('view engine', 'jade');
     this.app.use(serveStatic(path.join(__dirname, 'public')));
-    
+
+    require('./api')(this.app);
     require('./routes')(this.app);
   }
 

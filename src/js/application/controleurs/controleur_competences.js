@@ -1,12 +1,21 @@
 export default class ControleurCompetences { 
   /* @ngInject */
-  constructor() {
+  constructor(ServiceCompetences) {
+    this.ServiceCompetences = ServiceCompetences;
+    this.competencesTechniques;
+
+    this.chargerDonnees();
   }
 
-  competencesTechniques(){
-        return ['Java', 'Junit', 'C#', 'NUnit', 'JavaScript', 
-        'AngularJS', 'Node.js', 'Tapestry', 'GWT', 'Hadoop', 
-        'Pig', 'Git', 'Maven', 'Sonar', 'Jenkins'];
+  chargerDonnees() {
+    this.ServiceCompetences.getCompetencesTechniques()
+      .then((data) => {
+        this.competencesTechniques = data;
+      });
+  }
+
+  getCompetencesTechniques() {
+    return this.competencesTechniques;
   }
 
 }

@@ -47,6 +47,7 @@ module.exports = function(grunt) {
         extlibs: [
             "!!script!jquery/dist/jquery.min.js",
             "angular",
+            "lodash",
             "!!script!foundation-sites/dist/foundation.min.js"
         ]
       },

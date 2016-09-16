@@ -7,14 +7,16 @@ export default function () {
         var début = 0;
         var fin = 0;
 
-        for(var i = 0; i < input.length / tailleGroupBy; i++) {
+        if (input != null) {
+            for (var i = 0; i < input.length / tailleGroupBy; i++) {
 
-            fin += tailleGroupBy;
+                fin += tailleGroupBy;
 
-            var tableauTemp = input.slice(début, fin);
-            tableauGroupé.push(tableauTemp);
-            
-            début += tailleGroupBy;
+                var tableauTemp = input.slice(début, fin);
+                tableauGroupé.push(tableauTemp);
+
+                début += tailleGroupBy;
+            }
         }
 
         return tableauGroupé;

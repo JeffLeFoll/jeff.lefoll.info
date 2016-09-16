@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Mocha Test",
+            "type": "node",
+            "request": "launch",
+            "address": "localhost",
+            "port": 5858,
+            "restart": false,
+            "stopOnEntry": false,
+            "program": "${workspaceRoot}\\node_modules\\mocha\\bin\\_mocha",
+            "cwd": "${workspaceRoot}",
+            "args": [
+                "--debug-brk",
+                "--compilers", "js:babel-register",
+                "-u", "bdd",
+                "-R", "spec",
+                "--timeout", "999999",
+                "--colors",
+                "./serveur/**/*_spec.js"
+            ]
+        }
+    ]
+}

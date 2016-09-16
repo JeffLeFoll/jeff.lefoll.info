@@ -1,10 +1,9 @@
 'use strict';
 
-
 module.exports = function (grunt) {
 
-    var tests = './src/js/**/*_spec.js';
     var _ = require('lodash');
+    var tests ='./s*/**/*_spec.js'
 
     grunt.registerTask('mocha:ci', function () {
         run('xunit', this.async());
@@ -16,8 +15,8 @@ module.exports = function (grunt) {
 
     function run(reporter, done) {
         grunt.util.spawn({
-            //cmd: './node_modules/.bin/_mocha.cmd',
-            cmd: './node_modules/mocha/bin/mocha',
+            cmd: './node_modules/.bin/_mocha.cmd',
+            // cmd: './node_modules/mocha/bin/mocha',
             args: _.extend(['--compilers', 'js:babel-register', '--reporter', reporter, tests]),
             opts: {
               stdio : 'inherit'
