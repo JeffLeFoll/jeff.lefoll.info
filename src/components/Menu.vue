@@ -1,28 +1,32 @@
 <template>
-  <div class='title-bar' data-responsive-toggle='menu-principal' data-hide-for='medium'>
-    <button class='menu-icon' type='button' data-toggle=''></button>
-    <div class='title-bar-title'>Menu</div>
-  </div>
-  <div id='menu-principal' class='top-bar'>
-    <div class="top-bar-left">
+  <div>
+    <div class='title-bar' data-responsive-toggle='menu-principal' data-hide-for='medium'>
+      <button class='menu-icon' type='button' data-toggle=''></button>
+      <div class='title-bar-title'>Menu</div>
     </div>
-    <div class="top-bar-right">
-      <ul class="menu">
-        <li>
-          <a href="#competences">Compétences</a>
-        </li>
-        <li>
-          <a href="#talks">Talks</a>
-        </li>
-        <li>
-          <a href="#depots">Dépôts de code</a>
-        </li>
-      </ul>
+    <div id='menu-principal' class='top-bar'>
+      <div class="top-bar-left">
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li>
+            <a href="#competences">Compétences</a>
+          </li>
+          <li>
+            <a href="#talks">Talks</a>
+          </li>
+          <li>
+            <a href="#depots">Dépôts de code</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
-<style lang="sass" scoped>
+<style lang="sass">
+  @import "../assets/sass/common"
+
   $menu-background: $bleu-tres-leger
 
   .top-bar
@@ -50,4 +54,5 @@
 <script>
     export default {
     };
+
 </script>

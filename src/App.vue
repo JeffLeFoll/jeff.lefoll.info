@@ -19,19 +19,17 @@ export default {
     CustomFooter,
   },
 };
+
 </script>
 
 <style lang="sass">
-@import "assets/sass/foundation/conf-foundation"
-@import "assets/sass/font-awesome/conf-font-awesome"
+  @import "./assets/sass/common"
 
-@import "assets/sass/couleurs"
+  $font-stack: Tahoma, Geneva, sans-serif
 
-$font-stack: Tahoma, Geneva, sans-serif
+  body
+    font: 100% $font-stack
 
-body
-  font: 100% $font-stack
-
-  h1
+    h1
       font-family: $font-stack
 </style>

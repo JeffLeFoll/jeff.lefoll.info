@@ -10,28 +10,32 @@
         </a>
       </div>
       <div class="medium-1 column align-middle">
-        <a href="http://fr.linkedin.com/in/jefflefoll" target="_blank" title="LinkedIn" class="fa fa-linkedin-square fa-lg">
+        <a href="http://fr.linkedin.com/in/jefflefoll" target="_blank" title="LinkedIn"
+           class="fa fa-linkedin-square fa-lg">
         </a>
       </div>
     </div>
   </footer>
 </template>
 
-<style lang="sass" scoped>
-.footer
-  background-color: $bleu-leger
-  text-align: center
-  font-size: 1.2rem
-  padding: 4rem
+<style lang="sass">
+  @import "../assets/sass/common"
 
-  p
-    &.slogan
-      color: $blanc
-      font-size: 1.8rem
-      margin: 0 0 1rem
+  .footer
+    background-color: $bleu-leger
+    text-align: center
+    font-size: 1.2rem
+    padding: 4rem
+
+    p
+      &.slogan
+        color: $blanc
+        font-size: 1.8rem
+        margin: 0 0 1rem
 </style>
 
 <script>
     export default {
     };
+
 </script>
