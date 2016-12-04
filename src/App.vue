@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <menu></menu>
+    <custom-menu></custom-menu>
 
     <router-view></router-view>
 
@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import Menu from './components/Menu';
+import CustomMenu from './components/CustomMenu';
 import CustomFooter from './components/CustomFooter';
 
 export default {
   name: 'app',
   components: {
-    Menu,
+    CustomMenu,
     CustomFooter,
   },
 };
