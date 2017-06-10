@@ -1,0 +1,62 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/granite-bootstrap/granite-bootstrap.html">
+<link rel="import" href="../../bower_components/slate-font-awesome/slate-font-awesome.html">
+
+<link rel="import" href="competences-list.html">
+
+<dom-module id="my-competences">
+
+  <template>
+    <style include="granite-bootstrap slate-font-awesome">
+      #competences {
+        padding: 2em 0px;
+        background-color: var(--app-secondary-color);
+        color: var(--app-primary-color);
+      }
+
+      #competences .detail {
+        line-height: 1.6em;
+        font-size: 1em;
+        text-align: center;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+      }
+
+      #competences h1 {
+        line-height: 2em;
+      }
+    </style>
+
+    <section id="competences">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 detail">
+            <i class="fa fa-wrench fa-4x"></i>
+            <h1>Compétences techniques</h1>
+            <competences-list></competences-list>
+          </div>
+
+          <div class="col-md-6 detail">
+            <i class="fa fa-refresh fa-4x"></i>
+            <h1>Agilité</h1>
+            <p>J'ai découvert l'agilté en 2009. J'ai travaillé dans des équipes pluri-disciplinaires, multi-sites et internationnales.
+              Je suis convaincu que les valeurs humaines véhiculées par l'agilité (confiance, respect, pouvoir de décision,
+              auto-organisation, …) posent un cadre permetant de développer des logiciels de qualités, répondant aux besoins
+              concrets des utilisateurs finaux.
+            </p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+  </template>
+
+  <script>
+    class MyCompetences extends Polymer.Element {
+      static get is() { return "my-competences"; }
+    }
+
+    customElements.define(MyCompetences.is, MyCompetences);
+  </script>
+
+</dom-module>

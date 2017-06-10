@@ -1,0 +1,88 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/granite-bootstrap/granite-bootstrap.html">
+
+<link rel="import" href="github-cards.html">
+
+<dom-module id="my-depots">
+  <template>
+    <style include="granite-bootstrap">
+      #depots {
+        padding: 2em 0px;
+        background-color: var(--app-primary-color);
+        color: var(--app-secondary-color);
+      }
+
+      #depots h1 {
+        line-height: 2em;
+      }
+
+      #depots .detail {
+        line-height: 1.6em;
+        font-size: 1em;
+        text-align: center;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+      }
+    </style>
+
+    <section id="depots">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 detail">
+            <h1>Mes Dépôts de code</h1>
+          </div>
+        </div>
+      </div>
+      <github-cards github-data="[[githubJsonData]]"></github-cards>
+    </section>
+  </template>
+
+  <script>
+    class MyDepots extends Polymer.Element {
+      static get is() { return "my-depots"; }
+
+      connectedCallback() {
+        super.connectedCallback();
+        this.token = 'github-token';
+        this.userLogin = 'JeffLeFoll';
+
+        this._callGitHub();
+      }
+
+      _callGitHub() {
+        let header = new Headers({
+          "Authorization": "bearer " + this.token,
+          "Accept": "application/vnd.github.v3+json",
+          "Content-Type": "application/json"
+        });
+
+        let data = GithubCards.githubGraphQLQuery('JeffLeFoll');
+
+        fetch('https://api.github.com/graphql', {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: header
+        })
+          .then(this.checkStatus)
+          .then(this.unpackJson)
+          .then(json => { this.githubJsonData = json.data; })
+          .catch(error => new Error(error));
+      }
+
+      checkStatus(response) {
+        if (response.status >= 200 && response.status < 300) {
+          return Promise.resolve(response);
+        }
+
+        return Promise.reject(new Error(response.satusText));
+      }
+
+      unpackJson(response) {
+        return response.json();
+      }
+    }
+
+    customElements.define(MyDepots.is, MyDepots);
+  </script>
+
+</dom-module>

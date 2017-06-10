@@ -1,0 +1,145 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/granite-bootstrap/granite-bootstrap.html">
+<link rel="import" href="../../bower_components/slate-idb-store/slate-idb-store.html">
+
+
+<dom-module id="hero-cover">
+
+  <template>
+    <style include="granite-bootstrap">
+      .site-wrapper {
+        text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+        display: table;
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+        box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
+        padding-top: 10vh;
+      }
+
+      .site-wrapper-inner {
+        display: table-cell;
+        vertical-align: top;
+      }
+
+      .cover-container {
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+      }
+
+      .cover {
+        padding: 0 20px;
+      }
+
+      @media (min-width: 320px) {
+        .site-wrapper-inner {
+          vertical-align: middle;
+        }
+        .cover-container {
+          width: 100%;
+        }
+      }
+
+      .hero {
+        background-size: cover;
+        background: linear-gradient(to left, var(--app-primary-color), var(--app-darker-cover-color));
+      }
+
+      .hero h1 {
+        color: var(--app-secondary-color);
+        text-align: center;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        font-weight: 300;
+      }
+
+      .hero p {
+        color: var(--app-secondary-color);
+        line-height: 1.75em;
+        font-weight: 200;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .portrait {
+        background: url('../../images/small_jeff_lefoll.jpg') no-repeat center center;
+        background-size: cover;
+        height: 9rem;
+        width: 9rem;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+        border: 1px solid var(--app-secondary-color);
+        margin-bottom: 2rem;
+      }
+
+      @media only screen and (min-width: 600px) {
+        .portrait {
+          height: 11rem;
+          width: 11rem;
+        }
+      }
+
+      @media only screen and (min-width: 970px) {
+        .portrait {
+          height: 14rem;
+          width: 14rem;
+        }
+        .hero h1 {
+          text-align: left;
+          font-size: 2.5rem;
+        }
+        .hero p {
+          text-align: left;
+          font-size: 1.25rem;
+        }
+      }
+    </style>
+
+    <section class="site-wrapper hero">
+
+      <slate-idb-store db-name="slate-idb-store-callback-tests" object-store="unit-tests" upgrade-callback="{{cb}}"></slate-idb-store>
+
+
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-5">
+                <span class="portrait"></span>
+              </div>
+              <div class="col-md²-7">
+                <h1>helloWorld('Jeff');</h1>
+                <p>Je m'appelle Jean-François et je suis un développeur passionné. </p>
+                <p>Convaincu par les méthodes agiles et les pratiques de développement actuelles issues d'XP (TDD, pair programming)
+                  ; J'essaye de mettre ces idées en application dans mon travail de tous les jours ainsi que de diffuser
+                  ces bonnes pratiques. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <script>
+    class HeroCover extends Polymer.Element {
+      static get is() { return "hero-cover"; }
+
+      connectedCallback() {
+        super.connectedCallback();
+      }
+
+      cb(upgradeDB) {
+        console.log('hero bite cb');
+        upgradeDB.createObjectStore('unit-tests');
+
+      }
+
+    }
+
+    window.customElements.define(HeroCover.is, HeroCover);
+  </script>
+
+</dom-module>

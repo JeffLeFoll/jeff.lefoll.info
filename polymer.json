@@ -1,0 +1,39 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/root-app.html",
+  "fragments": [
+    "src/pages/landing-page.html",
+    "src/pages/page-404.html"
+  ],
+  "sources": [
+    "src/**/*",
+    "images/**/*",
+    "bower.json"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/*.js",
+    "bower_components/slate-font-awesome/fonts/*.*"
+  ],
+  "lint": {
+    "rules": [
+      "polymer-2"
+    ]
+  },
+  "builds": [
+    {
+      "addServiceWorker": true,
+      "swPrecacheConfig": "./sw-precache-config.js",
+      "insertPrefetchLinks": true,
+      "js": {
+        "minify": true
+      },
+      "css": {
+        "minify": true
+      },
+      "html": {
+        "minify": true
+      }
+    }
+  ]
+}

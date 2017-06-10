@@ -1,0 +1,106 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/granite-bootstrap/granite-bootstrap.html">
+
+<dom-module id="competences-list">
+
+  <template>
+    <style include="granite-bootstrap">
+      .comp {
+        border: 1px solid #004f7e;
+        border-radius: 4px;
+        margin-right: 4px;
+        margin-bottom: 4px;
+      }
+    </style>
+
+    <template is="dom-repeat" items="{{competences}}" as="subComps">
+
+      <div class="row">
+        <template is="dom-repeat" items="{{subComps}}" as="comp" index-as="indexComp">
+          <div class$="col-md-{{checkSize(comp, indexComp, subComps)}} {{estLePremierItem(indexComp)}} comp">{{comp}}</div>
+        </template>
+      </div>
+    </template>
+  </template>
+
+  <script>
+    class CompetencesList extends Polymer.Element {
+      static get is() { return "competences-list"; }
+
+      connectedCallback() {
+        super.connectedCallback();
+
+        console.log('plop');
+
+        this.retreiveCompetences();
+      }
+
+      cb() {
+        console.log('bite cb');
+      }
+
+      retreiveCompetences() {
+        fetch('/competences')
+          .then(this.checkStatus)
+          .then(this.unpackJson)
+          .then(json => { this.competences = this.formatterCompetences(json); })
+          .catch(error => new Error(error));
+      }
+
+      formatterCompetences(comps) {
+        let tailleGroupBy = 3;
+        let tableauGroupé = [];
+        let tableauTemp = [];
+
+        comps.forEach((comp, index) => {
+          if (tableauTemp.length >= 2 && (comp.length >= 10 || tableauTemp[0].length >= 10)) {
+            tableauGroupé.push(tableauTemp);
+            tableauTemp = [];
+          }
+
+          tableauTemp.push(comp);
+
+          if (tableauTemp.length === 3 || index === comps.length - 1 || (comp.length >= 10 && tableauTemp.length >= 2)) {
+            tableauGroupé.push(tableauTemp);
+            tableauTemp = [];
+          }
+        });
+
+        return tableauGroupé;
+      }
+
+      estLePremierItem(index) {
+        if (index === 0) {
+          return 'col-md-offset-3';
+        }
+        return '';
+      }
+
+      checkSize(item, index, tableau) {
+        let aLaTailleLimite = item.length >= 10;
+        let estLeDernierItemDUneLigneDe2 = tableau.length === 2 && index === 1 && tableau[0].length < 10;
+
+        if (aLaTailleLimite || estLeDernierItemDUneLigneDe2) {
+          return '4';
+        }
+        return '2';
+      }
+
+      checkStatus(response) {
+        if (response.status >= 200 && response.status < 300) {
+          return Promise.resolve(response);
+        }
+
+        return Promise.reject(new Error(response.satusText));
+      }
+
+      unpackJson(response) {
+        return response.json();
+      }
+
+    }
+
+    customElements.define(CompetencesList.is, CompetencesList);
+  </script>
+
+</dom-module>

@@ -1,0 +1,30 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="../components/hero-cover.html">
+<link rel="import" href="../components/my-competences.html">
+<link rel="import" href="../components/my-depots.html">
+<link rel="import" href="../components/my-footer.html">
+
+<dom-module id="landing-page">
+  <template>
+    <style >
+      :host {
+        height: 100vh;
+      }
+    </style>
+
+    <hero-cover></hero-cover>
+    <my-competences></my-competences>
+    <my-depots></my-depots>
+    <my-footer></my-footer>
+
+  </template>
+
+  <script>
+    class LandingPage extends Polymer.Element {
+      static get is() { return 'landing-page'; }
+    }
+
+    customElements.define(LandingPage.is, LandingPage);
+  </script>
+</dom-module>

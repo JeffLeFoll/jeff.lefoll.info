@@ -1,0 +1,177 @@
+POST https://api.github.com/graphql
+Authorization: bearer github-token
+Accept: application/vnd.github.v3+json
+Content-Type: application/json
+{
+ "query": "{user(login: \"JeffLeFoll\") { pinnedRepositories(first: 10) { edges {node { description url name primaryLanguage {name}}}}}}"
+}
+
+
+
+https://developer.github.com/early-access/graphql/explorer/
+
+{
+  user(login: "JeffLeFoll") {
+    pinnedRepositories(first: 10) {
+      edges {
+        node {
+          description
+          homepageURL
+          url
+          name
+          forks {
+            totalCount
+          }
+          watchers {
+            totalCount
+          }
+          stargazers {
+            totalCount
+          }
+          primaryLanguage {
+            name
+            color
+          }
+        }
+      }
+    }
+  }
+}
+
+
+{
+  "data": {
+    "user": {
+      "pinnedRepositories": {
+        "edges": [
+          {
+            "node": {
+              "description": "CLI tool to generate Angular 1.5 (w/ TypeScript) Routes, Components, Service and Filter like Angular 2 CLI",
+              "homepageURL": "",
+              "url": "https://github.com/JeffLeFoll/angular15-generator",
+              "name": "angular15-generator",
+              "forks": {
+                "totalCount": 0
+              },
+              "watchers": {
+                "totalCount": 2
+              },
+              "stargazers": {
+                "totalCount": 0
+              },
+              "primaryLanguage": {
+                "name": "JavaScript",
+                "color": "#f1e05a"
+              }
+            }
+          },
+          {
+            "node": {
+              "description": "A simple implementation of the Service Discovery pattern in Go.",
+              "homepageURL": "",
+              "url": "https://github.com/JeffLeFoll/go-service-discovery",
+              "name": "go-service-discovery",
+              "forks": {
+                "totalCount": 0
+              },
+              "watchers": {
+                "totalCount": 1
+              },
+              "stargazers": {
+                "totalCount": 0
+              },
+              "primaryLanguage": {
+                "name": "Go",
+                "color": "#375eab"
+              }
+            }
+          },
+          {
+            "node": {
+              "description": "Présentation sur le TDD pour le FinistJUG",
+              "homepageURL": null,
+              "url": "https://github.com/JeffLeFoll/finistjug-xunit-aux-frontieres-du-test",
+              "name": "finistjug-xunit-aux-frontieres-du-test",
+              "forks": {
+                "totalCount": 1
+              },
+              "watchers": {
+                "totalCount": 1
+              },
+              "stargazers": {
+                "totalCount": 0
+              },
+              "primaryLanguage": {
+                "name": "Java",
+                "color": "#b07219"
+              }
+            }
+          },
+          {
+            "node": {
+              "description": "Slides de ma présentation TDD à l'Agile Tour Brest 2015 et code produit pendant la présentation.",
+              "homepageURL": "http://jefflefoll.github.io/pres-tdd-agiletour-brest2015",
+              "url": "https://github.com/JeffLeFoll/pres-tdd-agiletour-brest2015",
+              "name": "pres-tdd-agiletour-brest2015",
+              "forks": {
+                "totalCount": 0
+              },
+              "watchers": {
+                "totalCount": 1
+              },
+              "stargazers": {
+                "totalCount": 0
+              },
+              "primaryLanguage": {
+                "name": "Java",
+                "color": "#b07219"
+              }
+            }
+          },
+          {
+            "node": {
+              "description": "Structure de projet gradle vide pour démarer un kata java (pour les coding dojo) avec les bonnes dépendences.",
+              "homepageURL": "",
+              "url": "https://github.com/JeffLeFoll/KataJava-BaseGradle",
+              "name": "KataJava-BaseGradle",
+              "forks": {
+                "totalCount": 1
+              },
+              "watchers": {
+                "totalCount": 2
+              },
+              "stargazers": {
+                "totalCount": 1
+              },
+              "primaryLanguage": {
+                "name": "Java",
+                "color": "#b07219"
+              }
+            }
+          },
+          {
+            "node": {
+              "description": "Application Posemètre pour Windows Phone 8.1 et Windows 8.1 (universal app)",
+              "homepageURL": "",
+              "url": "https://github.com/JeffLeFoll/WindowsPhone-Posemetre",
+              "name": "WindowsPhone-Posemetre",
+              "forks": {
+                "totalCount": 0
+              },
+              "watchers": {
+                "totalCount": 1
+              },
+              "stargazers": {
+                "totalCount": 0
+              },
+              "primaryLanguage": {
+                "name": "C#",
+                "color": "#178600"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

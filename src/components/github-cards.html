@@ -1,0 +1,76 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="github-card.html">
+
+<dom-module id="github-cards">
+
+  <template>
+    <style>
+      @media (max-width: 900px) {
+        .item {
+          width: 300px;
+          margin: 2px;
+        }
+      }
+
+      @media (min-width: 901px) {
+        .item {
+          width: 430px;
+          margin: 5px;
+        }
+      }
+
+      .box {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-content: center;
+        align-items: baseline;
+      }
+
+      .item {
+        flex: 0 1 auto;
+        align-self: auto;
+        min-height: auto;
+      }
+    </style>
+
+    <div class="box">
+      <template is="dom-repeat" items="{{githubRepos}}" as="githubRepo">
+        <div class="item">
+          <github-card repo="[[githubRepo.node]]"></github-card>
+        </div>
+      </template>
+    </div>
+
+  </template>
+
+  <script>
+    class GithubCards extends Polymer.Element {
+      static get is() { return "github-cards"; }
+
+      static get properties() {
+        return {
+          githubData: {
+            type: Object,
+            observer: '_githubDataUpdated'
+          }
+        }
+      }
+
+      static githubGraphQLQuery(userLogin) {
+        return {
+          "query": '{user(login: "' + userLogin + '") {pinnedRepositories(first: 10) {edges {node {description homepageURL url name forks {totalCount} watchers {totalCount} stargazers {totalCount} primaryLanguage {name color}}}}}}'
+        };
+      }
+
+      _githubDataUpdated() {
+        this.githubRepos = this.githubData.user.pinnedRepositories.edges
+      }
+
+    }
+
+    customElements.define(GithubCards.is, GithubCards);
+  </script>
+
+</dom-module>

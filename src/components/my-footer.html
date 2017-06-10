@@ -1,0 +1,58 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/granite-bootstrap/granite-bootstrap.html">
+<link rel="import" href="../../bower_components/slate-font-awesome/slate-font-awesome-min.html">
+
+<dom-module id="my-footer">
+
+  <template>
+      <style include="granite-bootstrap slate-font-awesome-min">
+        .footer {
+          background-color: var(--app-darker-cover-color);
+          text-align: center;
+          font-size: 1.2rem;
+          padding: 4rem;
+        }
+
+        .footer p {
+          color: white;
+          margin: 1rem;
+        }
+
+        .red {
+          color: var(--paper-red-a400)
+        }
+      </style>
+
+    <footer class="footer">
+      <div class="row">
+        <div class="col-xs-1 col-xs-offset-4">
+          <a href="https://github.com/JeffLeFoll" target="_blank" title="GitHub" class="fa fa-github-alt fa-lg">
+          </a>
+        </div>
+        <div class="col-xs-1">
+          <a href="https://twitter.com/JeffLeFoll" target="_blank" title="Twitter" class="fa fa-twitter fa-lg">
+          </a>
+        </div>
+        <div class="col-xs-1">
+          <a href="http://fr.linkedin.com/in/jefflefoll" target="_blank" title="LinkedIn" class="fa fa-linkedin-square fa-lg">
+          </a>
+        </div>
+        <div class="col-xs-1">
+          <a href="http://keybase.io/jefflefoll" target="_blank" title="Keybase.io" class="fa fa-user-secret fa-lg">
+          </a>
+        </div>
+      </div>
+      <p>© 2017 - Jean-François Le Foll</p>
+      <p style="font-size: 0.9rem;">Built with <i class="fa fa-heart red"></i> using Polymer 2.</p>
+    </footer>
+  </template>
+
+  <script>
+    class MyFooter extends Polymer.Element {
+      static get is() { return "my-footer"; }
+    }
+
+    customElements.define(MyFooter.is, MyFooter);
+  </script>
+
+</dom-module>
