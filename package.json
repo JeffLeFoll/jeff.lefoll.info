@@ -1,8 +1,11 @@
 {
+
   "name": "jeff-lefoll-info",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Site & blog personnels",
   "main": "index.js",
+  "author": "Jean-François Le Foll <jeff.lefoll@outlook.fr>",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon serveur/main.js",
@@ -15,7 +18,6 @@
     "websocket",
     "socket.io"
   ],
-  "author": "Jeff Le Foll",
   "license": "MIT",
   "dependencies": {
     "express": "^4.14.1",
